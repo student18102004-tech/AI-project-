@@ -1,0 +1,12 @@
+
+title,company,category,required_skills,required_education,required_experience,description
+Python Developer,Tech Solutions,Backend Development,Python;Flask;SQLite,BS Computer Science,Beginner,Develops Python backend applications
+Web Developer,Web Creators,Web Development,HTML;CSS;JavaScript,BS Computer Science,Beginner,Creates websites
+Data Analyst,Data Experts,Data Analytics,SQL;Excel;Python,BS Computer Science,Intermediate,Analyzes data
+AI Engineer,AI Innovations,Artificial Intelligence,Python;Machine Learning;Deep Learning,BS Computer Science,Intermediate,Develops AI applications
+Software Developer,Software Hub,Software Development,Java;OOP;SQL,BS Computer Science,Beginner,Develops software
+Frontend Developer,Creative Tech,Web Development,HTML;CSS;React,BS Computer Science,Beginner,Develops interfaces
+Backend Developer,Digital Systems,Backend Development,Python;Flask;REST API,BS Computer Science,Intermediate,Develops server systems
+Cybersecurity Analyst,Secure Tech,Cybersecurity,Networking;Linux;Security,BS Computer Science,Intermediate,Analyzes security risks
+Cloud Engineer,Cloud Solutions,Cloud Computing,AWS;Azure;Docker,BS Computer Science,Intermediate,Manages cloud services
+Mobile App Developer,Mobile Innovations,Mobile Development,React Native;JavaScript;API,BS Computer Science,Beginner,Develops mobile applications
