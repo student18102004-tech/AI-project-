@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Career Paths - CareerMatch AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Rajdhani', sans-serif; margin: 0; min-height: 100vh;
+            background-color: #050505;
+            background-image: linear-gradient(rgba(255, 0, 234, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 0, 234, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; color: #e0e0e0;
+        }
+        .navbar { background: rgba(0, 0, 0, 0.85); border-bottom: 2px solid #ff00ea; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h2 { margin: 0; color: #ff00ea; letter-spacing: 2px; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: #a0a0a0; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #ff00ea; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1 { color: #ff00ea; text-transform: uppercase; letter-spacing: 3px; text-align: center; text-shadow: 0 0 15px rgba(255,0,234,0.5); }
+        
+        .prediction-box {
+            background: #0d0d0d; border: 1px solid #333; border-left: 4px solid #ff00ea;
+            padding: 30px; text-align: center; margin-bottom: 40px;
+            box-shadow: 0 0 30px rgba(255,0,234,0.1);
+        }
+        .prediction-box h2 { margin: 0 0 10px 0; color: #fff; font-size: 18px; text-transform: uppercase; letter-spacing: 1px;}
+        .prediction-box .result { font-size: 42px; font-weight: 700; color: #ff00ea; text-shadow: 0 0 20px rgba(255,0,234,0.6); }
+        
+        .bfs-section h3 { color: #00f3ff; border-bottom: 1px solid #333; padding-bottom: 10px; margin-bottom: 20px; text-transform: uppercase; }
+        .tags { display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { 
+            background: rgba(0, 243, 255, 0.1); color: #00f3ff; padding: 8px 15px; 
+            border: 1px solid #00f3ff; font-weight: 600; transition: 0.3s; 
+        }
+        .tag:hover { box-shadow: 0 0 15px rgba(0,243,255,0.5); transform: translateY(-2px); }
+
+        .btn-back { display: block; width: 200px; text-align: center; margin: 50px auto 0; color: #ff00ea; text-decoration: none; border: 1px solid #ff00ea; padding: 10px 20px; transition: 0.3s; }
+        .btn-back:hover { background: #ff00ea; color: #000; box-shadow: 0 0 15px #ff00ea; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>CAREERMATCH_AI</h2>
+        <div class="nav-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Career Path Analysis</h1>
+        
+        <div class="prediction-box">
+            <h2>Machine Learning Model Prediction</h2>
+            <div class="result">{{ predicted }}</div>
+        </div>
+
+        <div class="bfs-section">
+            <h3>BFS Search: Explored Career Graph</h3>
+            <p style="color:#888; margin-bottom: 15px;">Starting from your predicted category, the AI agent used Breadth-First Search to explore these connected career paths:</p>
+            <div class="tags">
+                {% for cat in explored %}
+                    <span class="tag">{{ cat }}</span>
+                {% endfor %}
+            </div>
+        </div>
+
+        <a href="{{ url_for('dashboard') }}" class="btn-back">← Return_to_Dashboard</a>
+    </div>
+</body>
+</html>

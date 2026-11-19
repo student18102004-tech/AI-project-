@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CareerMatch AI - Find Your Path</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Rajdhani', sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: #050505;
+            /* Cyber Grid Background */
+            background-image: 
+                linear-gradient(rgba(0, 243, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 243, 255, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+            color: #e0e0e0;
+            overflow-x: hidden;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(0, 0, 0, 0.85);
+            border-bottom: 2px solid #00f3ff;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.3);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .navbar h2 { margin: 0; font-weight: 700; color: #00f3ff; text-shadow: 0 0 10px rgba(0, 243, 255, 0.5); letter-spacing: 2px; font-size: 24px; }
+        .nav-links a { 
+            margin-left: 25px; 
+            text-decoration: none; 
+            color: #a0a0a0; 
+            font-size: 16px; 
+            transition: 0.3s; 
+            text-transform: uppercase; 
+            font-weight: 600; 
+            border: 1px solid transparent;
+            padding: 8px 15px;
+        }
+        .nav-links a:hover { color: #00f3ff; text-shadow: 0 0 8px #00f3ff; border: 1px solid #00f3ff; box-shadow: inset 0 0 10px rgba(0,243,255,0.2); }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 120px 20px;
+            position: relative;
+            animation: fadeIn 1s ease-out forwards;
+        }
+
+        .hero h1 {
+            font-size: 64px;
+            font-weight: 700;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 20px;
+            text-shadow: 0 0 20px rgba(0, 243, 255, 0.6), 0 0 40px rgba(0, 243, 255, 0.2);
+        }
+
+        .hero h1 span {
+            color: #ff00ea;
+            text-shadow: 0 0 20px rgba(255, 0, 234, 0.6), 0 0 40px rgba(255, 0, 234, 0.2);
+        }
+
+        .hero p {
+            font-size: 20px;
+            color: #a0a0a0;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            line-height: 1.6;
+        }
+
+        /* CTA Button */
+        .btn-cta {
+            background: transparent;
+            color: #00f3ff;
+            padding: 16px 40px;
+            text-decoration: none;
+            border: 2px solid #00f3ff;
+            cursor: pointer;
+            font-size: 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(0, 243, 255, 0.2), inset 0 0 15px rgba(0, 243, 255, 0.1);
+            font-family: 'Rajdhani', sans-serif;
+            display: inline-block;
+        }
+
+        .btn-cta:hover {
+            background: #00f3ff;
+            color: #000;
+            box-shadow: 0 0 30px rgba(0, 243, 255, 0.8);
+            transform: translateY(-3px);
+        }
+
+        /* About Section */
+        .about-section {
+            max-width: 900px;
+            margin: 0 auto 100px auto;
+            padding: 50px;
+            background: #0d0d0d;
+            border: 1px solid #333;
+            border-left: 4px solid #ff00ea;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.9), inset 0 0 20px rgba(255, 0, 234, 0.05);
+            position: relative;
+            animation: slideUp 1s ease-out forwards;
+        }
+
+        .about-section h2 {
+            color: #ff00ea;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-top: 0;
+            text-shadow: 0 0 10px rgba(255, 0, 234, 0.4);
+        }
+
+        .about-section p {
+            font-size: 18px;
+            color: #ccc;
+            line-height: 1.8;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <div class="navbar">
+        <h2>CAREERMATCH_AI</h2>
+        <div class="nav-links">
+            <a href="{{ url_for('login') }}">Login</a>
+            <a href="{{ url_for('register') }}">Register</a>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Find Your <span>Career Path</span> With AI</h1>
+        <p>Discover suitable jobs and career opportunities based on your unique skills, education, and interests. Let our AI engine guide your future.</p>
+        <a href="{{ url_for('register') }}" class="btn-cta">Initialize_System</a>
+    </div>
+
+    <!-- About Section -->
+    <div class="about-section">
+        <h2>> About_CareerMatch_AI</h2>
+        <p>
+            CareerMatch AI is an advanced, AI-powered system designed to bridge the gap between talent and opportunity. 
+            By analyzing your personal profile through Machine Learning and Natural Language Processing, we provide 
+            accurate job recommendations, career path exploration, and skill gap analysis to help you achieve your professional goals.
+        </p>
+    </div>
+
+</body>
+</html>

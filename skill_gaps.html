@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Skill Gaps - CareerMatch AI</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Rajdhani', sans-serif; margin: 0; min-height: 100vh;
+            background-color: #050505;
+            background-image: linear-gradient(rgba(252, 226, 5, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(252, 226, 5, 0.05) 1px, transparent 1px);
+            background-size: 30px 30px; color: #e0e0e0;
+        }
+        .navbar { background: rgba(0, 0, 0, 0.85); border-bottom: 2px solid #fce205; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; }
+        .navbar h2 { margin: 0; color: #fce205; letter-spacing: 2px; }
+        .nav-links a { margin-left: 25px; text-decoration: none; color: #a0a0a0; font-weight: 600; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: #fce205; }
+        .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+        h1 { color: #fce205; text-transform: uppercase; letter-spacing: 3px; text-align: center; text-shadow: 0 0 15px rgba(252,226,5,0.5); }
+        
+        .target-job {
+            background: #0d0d0d; border: 1px solid #333; border-left: 4px solid #fce205;
+            padding: 30px; margin-bottom: 40px;
+        }
+        .target-job h2 { margin: 0 0 10px 0; color: #fff; font-size: 24px; }
+        .target-job p { margin: 0; color: #888; }
+        
+        .gap-box {
+            background: #0d0d0d; border: 1px solid #333; border-left: 4px solid #ff00ea;
+            padding: 30px;
+        }
+        .gap-box h3 { color: #ff00ea; margin-top: 0; text-transform: uppercase; letter-spacing: 1px;}
+        .gap-box p { color: #a0a0a0; }
+        
+        .missing-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px;}
+        .missing-tag { 
+            background: rgba(255, 0, 234, 0.1); color: #ff00ea; padding: 8px 15px; 
+            border: 1px solid #ff00ea; font-weight: 600; transition: 0.3s; text-transform: capitalize;
+        }
+        .missing-tag:hover { box-shadow: 0 0 15px rgba(255,0,234,0.5); }
+        
+        .no-gaps { color: #00f3ff; font-size: 18px; font-weight: bold; }
+
+        .btn-back { display: block; width: 200px; text-align: center; margin: 40px auto 0; color: #fce205; text-decoration: none; border: 1px solid #fce205; padding: 10px 20px; transition: 0.3s; }
+        .btn-back:hover { background: #fce205; color: #000; box-shadow: 0 0 15px #fce205; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h2>CAREERMATCH_AI</h2>
+        <div class="nav-links">
+            <a href="{{ url_for('dashboard') }}">Dashboard</a>
+            <a href="{{ url_for('profile') }}">Profile</a>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Skill Gap Analysis</h1>
+        
+        {% if job %}
+        <div class="target-job">
+            <h2>Target Job: <span style="color: #fce205;">{{ job.title }}</span> ({{ job.match_score }}% Match)</h2>
+            <p>Analyzing the gap between your profile and the requirements for <strong>{{ job.title }}</strong> at <strong>{{ job.company }}</strong>.</p>
+        </div>
+
+        <div class="gap-box">
+            <h3>Missing Competencies:</h3>
+            <p>To increase your match score, you should focus on learning the following skills required by this job:</p>
+            
+            {% if missing %}
+                <div class="missing-tags">
+                    {% for skill in missing %}
+                        <span class="missing-tag">{{ skill }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-gaps">Congratulations! You have all the required skills for this job.</p>
+            {% endif %}
+        </div>
+        {% else %}
+            <p style="text-align: center; color: #ff00ea;">No suitable job found to analyze skill gaps. Please complete your profile.</p>
+        {% endif %}
+
+        <a href="{{ url_for('dashboard') }}" class="btn-back">← Return_to_Dashboard</a>
+    </div>
+</body>
+</html>
